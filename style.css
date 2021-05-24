@@ -183,6 +183,11 @@ section button {
     color: #fff;
     margin: 32px 0;
     cursor: pointer;
+    transition: all .3s ease-in-out;
+}
+
+section button:hover {
+    background: rgba(80, 129, 251, 0.12);
 }
 
 .right-menu {
