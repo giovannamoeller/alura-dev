@@ -16,6 +16,10 @@ body {
     font-size: 16px;
 }
 
+span {
+    font-size: 80%;
+}
+
 header {
     max-height: 56px;
     max-width: 1440px;
@@ -26,22 +30,22 @@ header {
     margin: 32px 0;
 }
 
-.logo {
+header .logo {
     margin-right: 40px;
     width: 260px;
     height: 42px;
 }
 
-.logo img {
+header .logo img {
     width: 90%;
     height: 100%;
 }
 
-.search {
+header .search {
     width: 100%;
 }
 
-#search-input {
+header .search #search-input {
     width: 100%;
     height: 42px;
 
@@ -50,14 +54,17 @@ header {
     color: white;
     outline: none;
     padding-left: 16px;
-
 }
 
-#search-input::placeholder {
+header .search #search-input::placeholder {
     color: rgba(255, 255, 255, 0.7);
 }   
 
-.profile {
+.search-button {
+    display: none;
+}
+
+header .profile {
     margin-left: 40px;
     width: 380px;
     height: 40px;
@@ -65,18 +72,22 @@ header {
     justify-content: flex-end;
 }
 
-.profile-infos {
+header .profile-info {
     display: flex;
     align-items: center;
 }
 
-.profile-infos img {
+header .profile-info img {
     margin-right: 8px;
     width: 36px;
 }
 
-.profile-infos span {
+header .profile-info span {
     color: #fff;
+}
+
+.menubar {
+    display: none;
 }
 
 main {
@@ -91,27 +102,23 @@ main {
     margin-right: 40px;
 }
 
-span {
-    font-size: 80%;
-}
-
 .left-menu span:first-child {
     text-transform: uppercase;
     letter-spacing: 0.2rem;
 }
 
-.code-editor, .community {
+.left-menu .code-editor, .left-menu .community {
     display: flex;
     align-items: center;
     margin: 16px 0;
     cursor: pointer;
 }
 
-.code-editor span, .community span {
+.left-menu .code-editor span, .left-menu .community span {
     margin-left: 8px;
 }
 
-.code-editor .image, .community .image  {
+.left-menu .code-editor .image, .left-menu .community .image  {
     background: #5081FB;
     display: flex;
     align-items: center;
@@ -129,65 +136,8 @@ span {
     background: rgba(80, 129, 251, 0.16);
 }
 
-.fa-users {
+.left-menu .fa-users {
     opacity: 0.4;
-}
-
-
-section {
-    width: 100%;
-}
-
-.background-code {
-    width: 100%;
-    height: 50vh;
-    background: #6BD1FF;
-    border-radius: 8px;
-    
-    padding: 32px;
-}
-
-.code {
-    background: black;
-    width: 100%;
-    height: 100%;
-    border-radius: 8px;
-    padding: 16px;
-
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
-}
-
-.code textarea {
-    background: transparent;
-    color: white;
-    padding: 12px;
-    resize: none;
-
-    margin-top: 14px;
-
-    font-family: "Roboto mono";
-    font-weight: 300;
-    width: 100%;
-    height: 100%;
-    outline: none;
-}
-
-
-section button {
-    width: 100%;
-    height: 42px;
-    background: rgba(80, 129, 251, 0.08);
-    border-radius: 8px;
-    color: #fff;
-    margin: 32px 0;
-    cursor: pointer;
-    transition: all .3s ease-in-out;
-}
-
-section button:hover {
-    background: rgba(80, 129, 251, 0.12);
 }
 
 .right-menu {
@@ -272,57 +222,107 @@ input::placeholder, textarea::placeholder {
     margin-top: 16px;
 }
 
-.menu {
-    display: none;
+section {
+    width: 100%;
 }
 
-.search-button {
-    display: none;
+.background-code {
+    width: 100%;
+    height: 50vh;
+    background: #6BD1FF;
+    border-radius: 8px;
+    padding: 32px;
 }
+
+.code {
+    background: black;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    padding: 16px;
+
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.code textarea {
+    background: transparent;
+    color: white;
+    padding: 12px;
+    resize: none;
+
+    margin-top: 14px;
+
+    font-family: "Roboto mono";
+    font-weight: 300;
+    width: 100%;
+    height: 100%;
+    outline: none;
+}
+
+
+section button {
+    width: 100%;
+    height: 42px;
+    background: rgba(80, 129, 251, 0.08);
+    border-radius: 8px;
+    color: #fff;
+    margin: 32px 0;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+}
+
+section button:hover {
+    background: rgba(80, 129, 251, 0.12);
+}
+
 
 @media screen and (max-width: 1160px) {
     span {
         font-size: 80%;
     }
-    input::placeholder, input, textarea::placeholder, textarea, option {
+
+    input, input::placeholder, textarea, textarea::placeholder, option {
         font-size: 90%;
     }
 
-    #code {
+    textarea#code {
         font-size: 70%;
     }
 }
 
 
 @media screen and (max-width: 780px) {
+
+    header .logo {
+        margin-right: 20px;
+    }
+
+    header .profile {
+        max-width: 10px;
+    }
+
+    header .profile-info {
+        display: none;
+    }
+
+    .menubar {
+        display: flex;
+        align-items: center;
+    }
+
+    .menubar i {
+        color: #fff;
+        font-size: 1.2rem;
+    }
+
     main {
         flex-direction: column;
     }
 
     .left-menu {
         display: none;
-    }
-
-    .profile {
-        max-width: 10px;
-    }
-
-    .logo {
-        margin-right: 20px;
-    }
-
-    .profile-infos {
-        display: none;
-    }
-
-    .menu {
-        display: flex;
-        align-items: center;
-    }
-
-    .menu i {
-        color: #fff;
-        font-size: 1.2rem;
     }
 
     .right-menu {
@@ -338,12 +338,13 @@ input::placeholder, textarea::placeholder {
         margin-left: 12px;
     }
 
-    .right-menu .select {
-        display: flex;
-        align-items: center;
-    }
     .right-menu input[type="color"] {
         border-radius: 6px;
+    }
+
+    .right-menu .color-option {
+        display: flex;
+        align-items: center;
     }
     
 }
@@ -358,12 +359,13 @@ input::placeholder, textarea::placeholder {
         justify-content: flex-end;
     }
 
-    #search-input {
-        display: none;
-    }
-
     .search-button i {
         color: #fff;
         font-size: 1.2rem;
     }
+
+    #search-input {
+        display: none;
+    }
+
 }
